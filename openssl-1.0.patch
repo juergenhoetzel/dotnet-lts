@@ -1,0 +1,13 @@
+diff -ubr a/src/Native/System.Security.Cryptography.Native/CMakeLists.txt b/src/Native/System.Security.Cryptography.Native/CMakeLists.txt
+--- a/src/Native/System.Security.Cryptography.Native/CMakeLists.txt	2017-02-10 04:02:30.000000000 +0100
++++ b/src/Native/System.Security.Cryptography.Native/CMakeLists.txt	2017-05-25 11:47:09.171156442 +0200
+@@ -11,7 +11,8 @@
+ 
+ add_definitions(-DPIC=1)
+ 
+-find_package(OpenSSL REQUIRED)
++find_package(OpenSSL 1.0 REQUIRED)
++include_directories(SYSTEM "/usr/include/openssl-1.0/")
+ 
+ set(NATIVECRYPTO_SOURCES
+     openssl.c

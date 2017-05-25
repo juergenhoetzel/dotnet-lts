@@ -24,6 +24,7 @@ source=(
   'llvm-39-github-pull-8311.patch'
   'llvm-39-move.patch'
   'lttng-uts-40.patch'
+  'openssl-1.0.patch'
   'no-libstdcpp-wrappers-for-stdlib.patch'
   'fix-dtor-call.patch'
   'fix-readdir-on-glibc-2.24.patch')
@@ -33,6 +34,7 @@ md5sums=('5839d1101d705c7d16606595cd8707be'
          '2d8460befa48854b3adfa1a7328419c7'
          '070a3bb5091a78258c778f3f7c6f137a'
          'df24e4c22cbfcde5db82254f31f85cce'
+         'd2cbab6b9f8cfa22c8c7996106cc14e2'
          'cb11eadcd9895a27687dd5d2a4957d47'
          'b842b8210669c019a34bd85894a08027'
          '6fc63ac2e3c33f625120ecb5f28e5448')
@@ -49,6 +51,7 @@ prepare() {
   
   cd "${srcdir}/corefx-${pkgver}"
   patch -p1 < "${srcdir}/fix-readdir-on-glibc-2.24.patch"
+  patch -p1 < "${srcdir}/openssl-1.0.patch"
 }
 
 build() {
