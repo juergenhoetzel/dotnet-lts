@@ -9,7 +9,7 @@ url="https://www.microsoft.com/net/core"
 license=('MIT')
 groups=()
 depends=('lldb' 'libunwind' 'icu' 'lttng-ust' 'openssl' 'curl')
-makedepends=('cmake' 'make' 'clang' 'llvm' 'gettext')
+makedepends=('cmake' 'make' 'clang<=4' 'llvm<=4' 'gettext')
 provides=('dotnet=1.0.4')
 conflicts=('dotnet-bin')
 replaces=()
@@ -27,7 +27,6 @@ source=(
   'no-libstdcpp-wrappers-for-stdlib.patch'
   'fix-dtor-call.patch'
   'fix-readdir-on-glibc-2.24.patch')
-  
 sha256sums=('b49ba545fe632dfd5426669ca3300009a5ffd1ccf3c1cf82303dcf44044db33d'
             '4af6af035840072916c081976222a9f1780a0e797959a6478cefb4f7f837db5c'
             '4a59413a0b2ba8914ceecb4a505dae4f93ede10cae4246d714178b11cbe32a2f'
@@ -37,6 +36,7 @@ sha256sums=('b49ba545fe632dfd5426669ca3300009a5ffd1ccf3c1cf82303dcf44044db33d'
             '8e97cb867f958170fe3613921965ef1c56d282e22c5ba8ff6687ed52b9fabf01'
             '987d68c4ca5c5839773df292c76e2e044bc628118b96f1c80fcca55122cea1cb'
             '48005c5afda97770db17265285348cc059d414fff58354b690a4827fa755fc73')
+  
 
 prepare() {
   cd "${srcdir}/coreclr-${pkgver}"
